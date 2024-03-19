@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Importa o arquivo CSS para estilização -->
+    <link rel="stylesheet" href="/./css/home.css">
+    <!-- Importa a biblioteca de ícones FontAwesome -->
+    <script src="https://kit.fontawesome.com/fe60156fe9.js" crossorigin="anonymous"></script>
+</head>
+<!-- Cabeçalho da página -->
+<header>
+   <!-- Mostra um relógio (provavelmente dinâmico) -->
+   <p id="clock"></p>
+   <!-- Link para a página inicial -->
+   <a class="home" href="#">
+        <!-- Ícone de uma casa -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-14a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+    <!-- Botão para sair da página -->
+    <div id="sair"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #3e355a;"></i></div>
+</header>
+<body>
+  <!-- Modal para confirmação de saída -->
+  <div class="modal-sair">
+    <!-- Mensagem de alerta com o nome do usuário -->
+    <h3 class="alertaa"><span class="nomeUsuario"></span>, deseja realmente sair?</h3>
+    <!-- Botão para confirmar saída -->
+    <button class="btnsair">SAIR</button>
+    <!-- Botão para cancelar a saída -->
+    <button class="btncancelar">CANCELAR</button>
+  </div>
+   
+    <div class="nami">
+        <!-- Saudação personalizada com o nome do usuário -->
+        <h2>Bom dia, <span class="nomeUsuario"></span>😀</h2>
+    </div>
+    
+    <!-- Imagem de ruído para efeito visual -->
+    <img class="noise" src="/svgs/nnnoise.svg" alt="" srcset="">
+    <!-- Imagem de fundo da página -->
+    <img class="background" src="/svgs/ooorganize (1).svg" even alt="" srcset="">
+   
+ <!-- Container para o botão -->
+ <div class="container">
+        <!-- Botão para acessar um produto -->
+        <button  onclick="window.location.href='produto.html'"  style="border: none; background-color: rgba(214, 130, 28, 0);"><img class="button" src="/svgs/cart-add.svg" alt=""><h2 class="textindex">Acessar</h2></button>
+    </div>
+
+    <!-- Importa novamente a biblioteca de ícones FontAwesome -->
+    <script src="https://kit.fontawesome.com/fe60156fe9.js" crossorigin="anonymous"></script>
+    <!-- Importa o arquivo JavaScript para funcionalidades da página -->
+    <script src="/js/home.js"></script>
+</body> 
+</html>

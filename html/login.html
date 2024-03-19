@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Definições das meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="/css/login.css">
+
+    <!-- Font Awesome - Biblioteca de ícones -->
+    <script src="https://kit.fontawesome.com/fe60156fe9.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!-- Modal personalizado para exibir mensagens de erro -->
+    <div id="custom-alert" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Oops! Problemas no LOGIN.😢</h3>
+            <p>Verifique seu usuário e senha, e tente novamente.</p>
+        </div>
+    </div>
+
+    <!-- Imagens de fundo -->
+    <img class="noise" src="/./svgs/nnnoise.svg" alt="" srcset="">
+    <div class="background"> <img src="/./svgs/ooorganize (1).svg" alt="" srcset=""></div>
+
+    <!-- Formulário de Login -->
+    <form class="container" onsubmit="enviarForm(event)">
+        <div class="bv">
+            <h2>LOGIN</h2>
+            <div id="linhalogin"></div>
+            <br>
+        </div>
+        <!-- Ícone de usuário e campo de entrada -->
+        <i class="fa-solid fa-user" style="color: hsl(310, 74%, 16%); margin-left: 40px;"></i>
+        <label for="uname"><b>Usuário:</b></label>
+        <input id="email" type="text" autocomplete="off" placeholder="Insira o nome de usuário" name="uname" required>
+        <div class="linhaemail"></div>
+
+        <!-- Ícone de senha, campo de entrada e ícone de olho para mostrar/esconder senha -->
+        <i class="fa-solid fa-key" style="color:hsl(310, 74%, 16%); margin-left: 40px;"></i>
+        <label for="psw"><b>Senha:</b></label>
+        <div class="linhasenha"></div>
+        <input type="password" placeholder="Insira a senha" id="senha" name="psw" required>
+        <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/eye_visible_hide_hidden_show_icon_145988.png" class="eye" id="eye" width="40px">
+
+        <!-- Botão de envio do formulário -->
+        <button type="submit" class="btn">
+            <h5>ENTRAR</h5>
+        </button>
+    </form>
+
+    <!-- Imagem de chave animada -->
+    <img class="key" src="/./svgs/key-animate.svg" alt="" srcset="">
+
+    <!-- Scripts JavaScript -->
+    <script src="/./js/login.js"></script>
+    <script src="https://kit.fontawesome.com/fe60156fe9.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

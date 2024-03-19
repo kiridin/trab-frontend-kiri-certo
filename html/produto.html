@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importando o conjunto de ícones FontAwesome -->
+    <script src="https://kit.fontawesome.com/fe60156fe9.js" crossorigin="anonymous"></script>
+    <!-- Importando o arquivo CSS do produto -->
+    <link rel="stylesheet" href="/css/produto.css">
+    <title>Adicionar Produto</title>
+</head>
+
+
+<header>
+    <!-- Parágrafo para exibir o relógio -->
+    <p id="clock"></p>
+    <!-- Link para retornar à página inicial -->
+    <a class="home" onclick="window.location.href='home.html'">
+        <!-- Ícone de casa usando SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-home">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-14a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </a>
+</header>
+
+<body>
+    <!-- Div para exibir alerta de preenchimento obrigatório -->
+    <div id="custom-alert" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- Mensagem de alerta -->
+            <h3 class="alertaa">Oops! Você Não pode prosseguir assim.😢</h3>
+            <!-- Informação sobre o preenchimento obrigatório -->
+            <p class="alerta2">Preencha todos os campos e tente novamente.</p>
+        </div>
+    </div>
+
+    <!-- Imagem de ruído para efeito estético -->
+    <img class="noise" src="/svgs/nnnoise.svg" alt="" srcset="">
+    <!-- Imagem de fundo -->
+    <img class="background" src="/svgs/ooorganize (1).svg" even alt="" srcset="">
+
+    <!-- Contêiner para a lista de produtos -->
+    <div class="container2">
+        <h1 id="list">Lista de Produtos</h1>
+        <!-- Botão para exibir a lista de produtos -->
+        <button id="exibir_lista" style="border: none; background-color: rgba(214, 130, 28, 0);">
+            <!-- Ícone de lista usando SVG -->
+            <img class="button" src="/svgs/list.svg" alt="">
+            <!-- Texto indicando a função do botão -->
+            <h2 class="textindex">Lista de Produtos</h2>
+        </button>
+        <!-- Campo de busca -->
+        <input type="text" id="searchInput" placeholder="Buscar por ID ou Nome" onkeydown="handleKeyPress(event)">
+        <!-- Contêiner para exibir os produtos -->
+        <div id="produtos-container" style="overflow-y: scroll; height: 400px; margin-top: 13px;"></div>
+    </div>
+
+    <!-- Contêiner para a edição de produtos -->
+    <div class="containeredit">
+        <!-- Ícone de caneta para edição -->
+        <i id="caneta" class="fa-solid fa-pen" style="color: #362371;"></i>
+        <!-- Div para o conteúdo de edição -->
+        <div id="conteudo_editar">
+            <!-- Título para a seção de edição -->
+            <h1 id="edtt">Edição de Produto</h1>
+            <!-- Formulário para edição de produtos -->
+            <form id="produtoFormedit">
+                <!-- Ícone de olho riscado -->
+                <i id="pin" class="fa-solid fa-eye-slash" style="color: #110425;"></i>
+                <!-- Campo para o ID do produto (somente leitura) -->
+                <label for="idedit">Id do Produto:</label><br>
+                <input type="text" id="idedit" autocomplete="off" readonly maxlength="23" required><br>
+                <!-- Campo para o nome do produto -->
+                <label for="nomeedit">Nome do Produto:</label><br>
+                <input type="text" id="nomeedit" autocomplete="off" maxlength="23" required><br>
+                <!-- Campo para o valor do produto -->
+                <label for="valoredit">Valor:</label><br>
+                <input type="number" id="valoredit" name="valoredit" required min="0"><br>
+                <!-- Campo para a quantidade em estoque -->
+                <label for="quantidadeEstoqueedit">Quantidade em Estoque:</label><br>
+                <input type="number" id="quantidadeEstoqueedit" name="quantidadeEstoqueedit" required min="0"><br>
+                <!-- Campo para observações -->
+                <label for="observacaoedit">Observação:</label><br>
+                <textarea id="observacaoedit" maxlength="80" name="observacaoedit"></textarea><br>
+                <!-- Campo para a data de cadastro -->
+                <label for="dataCadastroedit">Data de Cadastro:</label><br>
+                <input type="datetime-local" id="dataCadastroedit" name="dataCadastroedit" required><br><br>
+                <!-- Botão para editar -->
+                <button id="edtbtn" class="btn" type="submit">EDITAR</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para apagar um produto -->
+    <div class="modal-apagar">
+        <!-- Mensagem de confirmação de exclusão -->
+        <h3 class="alertaa">Deseja realmente apagar <span class="nomeUsuario"></span>?</h3>
+        <!-- Botão para confirmar a exclusão -->
+        <button class="btnapagar">APAGAR</button>
+        <!-- Botão para cancelar a exclusão -->
+        <button class="btncancelar">CANCELAR</button>
+    </div>
+
+    <!-- Contêiner para adicionar produtos -->
+    <div class="container">
+        <!-- Título para a seção de adição de produtos -->
+        <h1 id="adc">Adicionar Produto</h1>
+        <!-- Formulário para adicionar produtos -->
+        <form id="produtoForm">
+            <!-- Campo para o nome do produto -->
+            <label for="nome">Nome do Produto:</label><br>
+            <input type="text" id="nome" maxlength="23" name="nome" required><br>
+            <!-- Campo para o valor do produto -->
+            <label for="valor">Valor:</label><br>
+            <input type="number" id="valor" name="valor" required min="0"><br>
+            <!-- Campo para a quantidade em estoque -->
+            <label for="quantidadeEstoque">Quantidade em Estoque:</label><br>
+            <input type="number" id="quantidadeEstoque" name="quantidadeEstoque" required min="0"><br>
+            <!-- Campo para observações -->
+            <label for="observacao">Observação:</label><br>
+            <textarea id="observacao" maxlength="80" name="observacao"></textarea><br>
+            <!-- Campo para a data de cadastro -->
+            <label for="dataCadastro">Data de Cadastro:</label><br>
+            <input type="datetime-local" id="dataCadastro" name="dataCadastro" required><br><br>
+            <!-- Botão para adicionar -->
+            <button class="btn" type="button" onclick="validarEEnviar()">ADICIONAR</button>
+        </form>
+    </div>
+    <!-- Importando o arquivo JavaScript do produto -->
+    <script src="/./js/produto.js"></script>
+</body>
+
+</html>
